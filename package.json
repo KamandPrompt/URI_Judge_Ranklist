@@ -6,13 +6,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Mohib Qureshi",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.1",
     "cheerio": "^1.0.0-rc.5",
-    "isomorphic-fetch": "^3.0.0",
-    "read-excel-file": "^5.0.0"
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "path": "^0.12.7",
+    "xlsx": "^0.16.9"
   },
   "devDependencies": {
     "g-sheets-api": "file:node_modules/g-sheets-api"
