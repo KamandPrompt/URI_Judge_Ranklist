@@ -1,0 +1,20 @@
+{
+  "name": "cheeriojsdemo",
+  "version": "1.0.0",
+  "description": "Demo of using cheeriojs ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mohib Qureshi",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cheerio": "^1.0.0-rc.5",
+    "isomorphic-fetch": "^3.0.0",
+    "read-excel-file": "^5.0.0"
+  },
+  "devDependencies": {
+    "g-sheets-api": "file:node_modules/g-sheets-api"
+  }
+}
