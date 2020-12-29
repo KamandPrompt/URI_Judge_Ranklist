@@ -46,15 +46,15 @@ const fetchDetails = () => {
                 points = "0.00";
             }
             URIdata[i]["points"] = parseFloat(points);
-            //console.log(URIdata[i]);
         }
+        URIdata.sort((a,b) => b.points - a.points);
     })
     .catch( (err)=> {
         console.log(err);
     });
-    setTimeout(fetchDetails, 1000 * 60 * 60);
 }
 
 fetchDetails();
+setInterval(fetchDetails, 1000 * 60 * 60);
 
 exports = module.exports = app;

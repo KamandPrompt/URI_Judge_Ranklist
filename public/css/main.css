@@ -1,0 +1,19 @@
+.container {
+	width: 1024px;
+	padding: 2em;
+}
+
+.bold-gold {
+    font-weight: bold;
+	color: #C9B037;
+}
+
+.bold-silver {
+	font-weight: bold;
+	color: #B4B4B4;
+}
+
+.bold-bronze {
+	font-weight: bold;
+	color: #6A3805;
+}
