@@ -50,11 +50,11 @@
                     <tr>
                         <td><%= data[i].rank %></td>
                         <td>
-                            <% if (data[i].rank<5) { %>
+                            <% if (data[i].rank<=5) { %>
                                 <i class="fas fa-medal bold-gold"></i>
-                            <% } else if (data[i].rank<10){ %>
+                            <% } else if (data[i].rank<=10){ %>
                                 <i class="fas fa-medal bold-silver"></i>
-                            <% } else if (data[i].rank<15){ %>
+                            <% } else if (data[i].rank<=15){ %>
                                 <i class="fas fa-medal bold-bronze"></i>
                             <% } %>
                             <a target="_blank" href="<%= data[i].profile %>">
