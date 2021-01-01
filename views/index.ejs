@@ -37,23 +37,24 @@
                      data-toolbar="#toolbar">
             <thead>
                 <tr>
-                    <th data-field="serial" data-sortable="true">College Rank</th>
+                    <th data-field="serial" data-sortable="true">Rank</th>
                     <th data-field="name"  data-sortable="false">Name</th>
                     <th data-field="branch" data-filter-control="select">Branch</th>
                     <th data-field="roll" data-sortable="true">Roll No.</th>
                     <th data-field="score" data-sortable="true">Points</th>
+                    <th data-field="change" data-sortable="true">Change (in 24h)</th>
                 </tr>
             </thead>
             <tbody>
                 <% for(var i=0; i<data.length; i++) {%>
                     <tr>
-                        <td><%= i+1 %></td>
+                        <td><%= data[i].rank %></td>
                         <td>
-                            <% if (i<5) { %>
+                            <% if (data[i].rank<5) { %>
                                 <i class="fas fa-medal bold-gold"></i>
-                            <% } else if (i<10){ %>
+                            <% } else if (data[i].rank<10){ %>
                                 <i class="fas fa-medal bold-silver"></i>
-                            <% } else if (i<15){ %>
+                            <% } else if (data[i].rank<15){ %>
                                 <i class="fas fa-medal bold-bronze"></i>
                             <% } %>
                             <a target="_blank" href="<%= data[i].profile %>">
@@ -63,11 +64,20 @@
                         <td><%= data[i].branch %></td>
                         <td><%= data[i].roll %></td>
                         <td><%= data[i].points %></td>
+                        <% if (data[i].change) { %>
+                            <td class="bold-green">+ <%= data[i].change %></td>    
+                        <% } else { %>
+                            <td></td>
+                        <% } %>
                     </tr>
                 <% } %> 
             </tbody>
         </table>
-        </div>
+    </div>
+    <p class="footer-heart">
+        Made with <g-emoji class="g-emoji" alias="heart" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2764.png">
+        <img class="emoji" alt="heart" height="20" width="20" src="https://github.githubassets.com/images/icons/emoji/unicode/2764.png"></g-emoji> by <a target="_blank" href="https://github.com/KamandPrompt">KamandPrompt</a>
+    </p>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
