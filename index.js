@@ -11,19 +11,16 @@ const cheerio = require('cheerio');
 var wb = XLSX.readFile("./responses.xlsx");
 var sheetlist = wb.SheetNames;
 
-const getArrayWithLimitedLength = (length) => {
-    var arr = new Array();
-    arr.push = () => {
-        if (this.length >= length) {
-            this.shift();
-        }
-        return Array.prototype.push.apply(this, arguments);
+Array.prototype.push_with_limit = function(element, limit) {
+    var length = this.length;
+    if (length == limit){
+        this.shift();
     }
-    return arr;
+    this.push(element);
 }
 
 var URIdata = []
-var oldURIdata = getArrayWithLimitedLength(24);
+var oldURIdata = [];
 
 var app = express();
 const port = 3000;
@@ -69,12 +66,12 @@ const fetchDetails = () => {
             URIdata.forEach((obj, i) => {
                 oldData.forEach((oldobj, oldi) => {
                     if (obj.roll == oldobj.roll && obj.points != oldobj.points) {
-                        obj.change = oldobj.points - obj.points;
+                        obj.change = (obj.points - oldobj.points).toFixed(2);
                     }
                 });
             });
         }
-        oldURIdata.push(URIdata);
+        oldURIdata.push_with_limit(URIdata, 24);
     })
     .catch( (err)=> {
         console.log(err);
