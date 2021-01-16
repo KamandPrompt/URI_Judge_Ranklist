@@ -57,7 +57,7 @@ const fetchDetails = () => {
             } else {
                 points = "0.00";
             }
-            URIdata[i]["points"] = parseFloat(points);
+            URIdata[i]["points"] = parseFloat(points.replace(/,/g, ''));
         }
         URIdata.sort((a,b) => b.points - a.points);
         URIdata.forEach((obj, i) => obj.rank = i+1);
